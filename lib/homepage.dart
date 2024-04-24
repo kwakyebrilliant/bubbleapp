@@ -1,4 +1,5 @@
 import 'package:bubbleapp/button.dart';
+import 'package:bubbleapp/player.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -36,7 +37,11 @@ class _HomepageState extends State<Homepage> {
             color: Colors.amber[100],
             child: Center(
               child: Stack(
-                children: [],
+                children: [
+                  MyPlayer(
+                    playerX: playerX,
+                  ),
+                ],
               ),
             ),
           ),
