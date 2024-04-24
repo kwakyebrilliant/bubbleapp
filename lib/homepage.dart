@@ -9,6 +9,9 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  //player variables
+  double playerX = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +26,7 @@ class _HomepageState extends State<Homepage> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: Container(
-                      alignment: const Alignment(playerX, 1),
+                      alignment: Alignment(playerX, 1),
                       child: Container(
                         color: Colors.black,
                         height: 50.0,
