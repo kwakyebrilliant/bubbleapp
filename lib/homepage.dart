@@ -1,3 +1,4 @@
+import 'package:bubbleapp/button.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -22,7 +23,9 @@ class _HomepageState extends State<Homepage> {
           child: Container(
             color: Colors.grey[100],
             child: Row(
-              children: [],
+              children: [
+                MyButton(),
+              ],
             ),
           ),
         ),
