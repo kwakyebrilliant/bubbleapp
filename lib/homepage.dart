@@ -18,10 +18,10 @@ class _HomepageState extends State<Homepage> {
   //player variables
   static double playerX = 0;
 
-  //missle variables
-  double missleX = playerX;
-  double missleY = 1;
-  double missleHeight = 10;
+  //missile variables
+  double missileX = playerX;
+  double missileY = 1;
+  double missileHeight = 10;
 
   //move player left
   void moveLeft() {
@@ -31,7 +31,7 @@ class _HomepageState extends State<Homepage> {
       } else {
         playerX -= 0.1;
       }
-      missleX = playerX;
+      missileX = playerX;
     });
   }
 
@@ -43,27 +43,27 @@ class _HomepageState extends State<Homepage> {
       } else {
         playerX += 0.1;
       }
-      missleX = playerX;
+      missileX = playerX;
     });
   }
 
-  void fireMissle() {
+  void fireMissile() {
     Timer.periodic(const Duration(milliseconds: 20), (timer) {
-      if (missleHeight > MediaQuery.of(context).size.height * 3 / 4) {
-        //stop missle
-        resetMissle();
+      if (missileHeight > MediaQuery.of(context).size.height * 3 / 4) {
+        //stop missile
+        resetMissile();
         timer.cancel();
       } else {
         setState(() {
-          missleHeight += 10;
+          missileHeight += 10;
         });
       }
     });
   }
 
-  void resetMissle() {
-    missleX = playerX;
-    missleHeight = 10;
+  void resetMissile() {
+    missileX = playerX;
+    missileHeight = 10;
   }
 
   @override
@@ -78,7 +78,7 @@ class _HomepageState extends State<Homepage> {
           moveRight();
         }
         if (event.isKeyPressed(LogicalKeyboardKey.space)) {
-          fireMissle();
+          fireMissile();
         }
       },
       child: Column(
@@ -110,7 +110,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                   MyButton(
                     icon: Icons.arrow_upward,
-                    function: fireMissle,
+                    function: fireMissile,
                   ),
                   MyButton(
                     icon: Icons.arrow_forward,
