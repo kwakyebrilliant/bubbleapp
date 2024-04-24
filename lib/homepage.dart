@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:async';
+
 import 'package:bubbleapp/button.dart';
 import 'package:bubbleapp/player.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,11 @@ class _HomepageState extends State<Homepage> {
   //player variables
   double playerX = 0;
 
+  //missle variables
+  double missleX = 0;
+  double missleY = 1;
+
+  //move player left
   void moveLeft() {
     setState(() {
       if (playerX - 0.1 < -1) {
@@ -26,6 +33,7 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+  //move player right
   void moveRight() {
     setState(() {
       setState(() {
@@ -38,7 +46,13 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
-  void fireMissle() {}
+  void fireMissle() {
+    Timer.periodic(Duration(milliseconds: 100), (timer) {
+      setState(() {
+        missleY -= 0.1;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +78,14 @@ class _HomepageState extends State<Homepage> {
               child: Center(
                 child: Stack(
                   children: [
+                    Container(
+                      alignment: Alignment(missleX, missleY),
+                      child: Container(
+                        width: 30.0,
+                        height: 30.0,
+                        color: Colors.red,
+                      ),
+                    ),
                     MyPlayer(
                       playerX: playerX,
                     ),
