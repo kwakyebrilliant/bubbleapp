@@ -21,6 +21,9 @@ class _HomepageState extends State<Homepage> {
         Expanded(
           child: Container(
             color: Colors.grey[100],
+            child: Row(
+              children: [],
+            ),
           ),
         ),
       ],
