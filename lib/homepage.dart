@@ -31,28 +31,39 @@ class _HomepageState extends State<Homepage> {
       } else {
         playerX -= 0.1;
       }
+      missleX = playerX;
     });
   }
 
   //move player right
   void moveRight() {
     setState(() {
-      setState(() {
-        if (playerX + 0.1 > 1) {
-          //do nothing
-        } else {
-          playerX += 0.1;
-        }
-      });
+      if (playerX + 0.1 > 1) {
+        //do nothing
+      } else {
+        playerX += 0.1;
+      }
+      missleX = playerX;
     });
   }
 
   void fireMissle() {
     Timer.periodic(const Duration(milliseconds: 20), (timer) {
-      setState(() {
-        missleHeight += 10;
-      });
+      if (missleHeight > MediaQuery.of(context).size.height * 3 / 4) {
+        //stop missle
+        resetMissle();
+        timer.cancel();
+      } else {
+        setState(() {
+          missleHeight += 10;
+        });
+      }
     });
+  }
+
+  void resetMissle() {
+    missleX = playerX;
+    missleHeight = 10;
   }
 
   @override
@@ -79,14 +90,6 @@ class _HomepageState extends State<Homepage> {
               child: Center(
                 child: Stack(
                   children: [
-                    Container(
-                      alignment: Alignment(missleX, missleY),
-                      child: Container(
-                        width: 2.0,
-                        height: missleHeight,
-                        color: Colors.red,
-                      ),
-                    ),
                     MyPlayer(
                       playerX: playerX,
                     ),
