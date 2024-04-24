@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> {
         ),
         Expanded(
           child: Container(
-            color: Colors.grey,
+            color: Colors.grey[200],
           ),
         ),
       ],
