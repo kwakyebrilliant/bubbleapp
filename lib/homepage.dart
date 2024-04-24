@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:bubbleapp/button.dart';
+import 'package:bubbleapp/missile.dart';
 import 'package:bubbleapp/player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -90,6 +91,10 @@ class _HomepageState extends State<Homepage> {
               child: Center(
                 child: Stack(
                   children: [
+                    MyMissile(
+                      height: missileHeight,
+                      missileX: missileX,
+                    ),
                     MyPlayer(
                       playerX: playerX,
                     ),
