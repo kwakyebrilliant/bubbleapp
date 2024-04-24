@@ -41,6 +41,9 @@ class _HomepageState extends State<Homepage> {
         } else if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
           moveRight();
         }
+        if (event.isKeyPressed(LogicalKeyboardKey.space)) {
+          fireMissle();
+        }
       },
       child: Column(
         children: [
