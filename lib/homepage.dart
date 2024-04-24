@@ -12,6 +12,12 @@ class _HomepageState extends State<Homepage> {
   //player variables
   double playerX = 0;
 
+  void moveLeft() {}
+
+  void moveRight() {}
+
+  void fireMissle() {}
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,17 +48,20 @@ class _HomepageState extends State<Homepage> {
         Expanded(
           child: Container(
             color: Colors.grey[100],
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MyButton(
                   icon: Icons.arrow_back,
+                  function: moveLeft,
                 ),
                 MyButton(
                   icon: Icons.arrow_upward,
+                  function: fireMissle,
                 ),
                 MyButton(
                   icon: Icons.arrow_forward,
+                  function: moveRight,
                 ),
               ],
             ),
