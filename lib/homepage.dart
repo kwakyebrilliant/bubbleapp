@@ -23,7 +23,10 @@ class _HomepageState extends State<Homepage> {
           child: Container(
             color: Colors.grey[100],
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                MyButton(),
+                MyButton(),
                 MyButton(),
               ],
             ),
