@@ -22,12 +22,18 @@ class _HomepageState extends State<Homepage> {
         Expanded(
           child: Container(
             color: Colors.grey[100],
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                MyButton(),
-                MyButton(),
-                MyButton(),
+                MyButton(
+                  icon: Icons.arrow_back,
+                ),
+                MyButton(
+                  icon: Icons.arrow_upward,
+                ),
+                MyButton(
+                  icon: Icons.arrow_forward,
+                ),
               ],
             ),
           ),
