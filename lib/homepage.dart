@@ -10,6 +10,19 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            color: Colors.amber[200],
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.grey,
+          ),
+        ),
+      ],
+    );
   }
 }
