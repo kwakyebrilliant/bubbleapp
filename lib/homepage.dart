@@ -12,9 +12,17 @@ class _HomepageState extends State<Homepage> {
   //player variables
   double playerX = 0;
 
-  void moveLeft() {}
+  void moveLeft() {
+    setState(() {
+      playerX -= 0.1;
+    });
+  }
 
-  void moveRight() {}
+  void moveRight() {
+    setState(() {
+      playerX += 0.1;
+    });
+  }
 
   void fireMissle() {}
 
