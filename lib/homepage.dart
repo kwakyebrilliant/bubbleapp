@@ -16,11 +16,12 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   //player variables
-  double playerX = 0;
+  static double playerX = 0;
 
   //missle variables
-  double missleX = 0;
+  double missleX = playerX;
   double missleY = 1;
+  double missleHeight = 10;
 
   //move player left
   void moveLeft() {
@@ -47,9 +48,9 @@ class _HomepageState extends State<Homepage> {
   }
 
   void fireMissle() {
-    Timer.periodic(Duration(milliseconds: 100), (timer) {
+    Timer.periodic(const Duration(milliseconds: 20), (timer) {
       setState(() {
-        missleY -= 0.1;
+        missleHeight += 10;
       });
     });
   }
@@ -81,8 +82,8 @@ class _HomepageState extends State<Homepage> {
                     Container(
                       alignment: Alignment(missleX, missleY),
                       child: Container(
-                        width: 30.0,
-                        height: 30.0,
+                        width: 2.0,
+                        height: missleHeight,
                         color: Colors.red,
                       ),
                     ),
