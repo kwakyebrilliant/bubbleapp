@@ -23,6 +23,7 @@ class _HomepageState extends State<Homepage> {
   double missileX = playerX;
   double missileY = 1;
   double missileHeight = 10;
+  bool midShot = false;
 
   //move player left
   void moveLeft() {
@@ -49,17 +50,20 @@ class _HomepageState extends State<Homepage> {
   }
 
   void fireMissile() {
-    Timer.periodic(const Duration(milliseconds: 20), (timer) {
-      if (missileHeight > MediaQuery.of(context).size.height * 3 / 4) {
-        //stop missile
-        resetMissile();
-        timer.cancel();
-      } else {
-        setState(() {
-          missileHeight += 10;
-        });
-      }
-    });
+    if (midShot == false) {
+      Timer.periodic(const Duration(milliseconds: 20), (timer) {
+        midShot = true;
+        if (missileHeight > MediaQuery.of(context).size.height * 3 / 4) {
+          //stop missile
+          resetMissile();
+          timer.cancel();
+        } else {
+          setState(() {
+            missileHeight += 10;
+          });
+        }
+      });
+    }
   }
 
   void resetMissile() {
