@@ -30,6 +30,15 @@ class _HomepageState extends State<Homepage> {
   double ballX = 0.5;
   double ballY = 0;
 
+  //start game
+  void startGame() {
+    Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      setState(() {
+        ballX -= 0.03;
+      });
+    });
+  }
+
   //move player left
   void moveLeft() {
     setState(() {
@@ -133,6 +142,10 @@ class _HomepageState extends State<Homepage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  MyButton(
+                    icon: Icons.play_arrow,
+                    function: startGame,
+                  ),
                   MyButton(
                     icon: Icons.arrow_back,
                     function: moveLeft,
