@@ -33,7 +33,11 @@ class _HomepageState extends State<Homepage> {
       } else {
         playerX -= 0.1;
       }
-      missileX = playerX;
+
+      //only makes the X cordinates the same when its isn't in the middle of the shot
+      if (!midShot) {
+        missileX = playerX;
+      }
     });
   }
 
@@ -45,22 +49,29 @@ class _HomepageState extends State<Homepage> {
       } else {
         playerX += 0.1;
       }
-      missileX = playerX;
+      //only makes the X cordinates the same when its isn't in the middle of the shot
+      if (!midShot) {
+        missileX = playerX;
+      }
     });
   }
 
   void fireMissile() {
     if (midShot == false) {
       Timer.periodic(const Duration(milliseconds: 20), (timer) {
+        //shots fired
         midShot = true;
+
+        //missile grows til it hits top of the screen
+        setState(() {
+          missileHeight += 10;
+        });
+
         if (missileHeight > MediaQuery.of(context).size.height * 3 / 4) {
           //stop missile
           resetMissile();
           timer.cancel();
-        } else {
-          setState(() {
-            missileHeight += 10;
-          });
+          midShot = false;
         }
       });
     }
