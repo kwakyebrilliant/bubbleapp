@@ -25,6 +25,10 @@ class _HomepageState extends State<Homepage> {
   double missileHeight = 10;
   bool midShot = false;
 
+  //ball variables
+  double ballX = 0.5;
+  double ballY = 0;
+
   //move player left
   void moveLeft() {
     setState(() {
