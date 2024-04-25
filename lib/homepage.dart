@@ -16,6 +16,8 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+enum direction { LEFT, RIGHT }
+
 class _HomepageState extends State<Homepage> {
   //player variables
   static double playerX = 0;
@@ -29,13 +31,26 @@ class _HomepageState extends State<Homepage> {
   //ball variables
   double ballX = 0.5;
   double ballY = 0;
+  var ballDirection = direction.LEFT;
 
   //start game
   void startGame() {
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
-      setState(() {
-        ballX -= 0.03;
-      });
+      if (ballX - 0.02 < -1) {
+        ballDirection = direction.RIGHT;
+      } else if (ballX + 0.02 > 1) {
+        ballDirection = direction.LEFT;
+      }
+
+      if (ballDirection == direction.LEFT) {
+        setState(() {
+          ballX -= 0.02;
+        });
+      } else if (ballDirection == direction.RIGHT) {
+        setState(() {
+          ballX += 0.02;
+        });
+      }
     });
   }
 
