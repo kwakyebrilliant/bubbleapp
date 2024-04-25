@@ -13,7 +13,7 @@ class MyMissile extends StatelessWidget {
       child: Container(
         width: 2.0,
         height: height,
-        color: Colors.red,
+        color: Colors.amber,
       ),
     );
   }
