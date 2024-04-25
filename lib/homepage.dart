@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:bubbleapp/ball.dart';
 import 'package:bubbleapp/button.dart';
 import 'package:bubbleapp/missile.dart';
 import 'package:bubbleapp/player.dart';
@@ -110,6 +111,10 @@ class _HomepageState extends State<Homepage> {
               child: Center(
                 child: Stack(
                   children: [
+                    MyBall(
+                      ballX: ballX,
+                      ballY: ballY,
+                    ),
                     MyMissile(
                       height: missileHeight,
                       missileX: missileX,
