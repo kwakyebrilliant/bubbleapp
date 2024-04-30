@@ -106,7 +106,7 @@ class _HomepageState extends State<Homepage> {
     }
   }
 
-  //convert heights to cordinate
+  //convert heights to cordinates
   double heightToCordinate(double height) {
     double totalHeight = MediaQuery.of(context).size.height * 3 / 4;
     double missileY = 1 - 2 * height / totalHeight;
