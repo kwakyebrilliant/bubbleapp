@@ -37,7 +37,7 @@ class _HomepageState extends State<Homepage> {
   void startGame() {
     double time = 0;
     double height = 0;
-    double velocity = 60;
+    double velocity = 70;
     Timer.periodic(const Duration(milliseconds: 10), (timer) {
       //quadratic equation that models a bounce (upside down parabole)
       height = -5 * time * time + velocity * time;
