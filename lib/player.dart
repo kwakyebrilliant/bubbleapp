@@ -7,14 +7,15 @@ class MyPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Align(
       alignment: Alignment(playerX, 1),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
-        child: Container(
-          color: Colors.black,
-          height: 50.0,
-          width: 50.0,
+        child: Image.asset(
+          'assets/images/player.png',
+          height: 100.0,
+          width: 100.0,
+          fit: BoxFit.cover,
         ),
       ),
     );
