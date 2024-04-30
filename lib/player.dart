@@ -14,7 +14,7 @@ class MyPlayer extends StatelessWidget {
         child: Image.asset(
           'assets/images/player.png',
           height: 100.0,
-          width: 100.0,
+          width: 80.0,
           fit: BoxFit.cover,
         ),
       ),
