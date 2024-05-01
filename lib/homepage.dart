@@ -139,7 +139,7 @@ class _HomepageState extends State<Homepage> {
           timer.cancel();
         }
 
-        //check if missile has hit the ball
+        //check if missile has hits the ball
         if (ballY > heightToPosition(missileHeight) &&
             (ballX - missileX).abs() < 0.03) {
           resetMissile();
